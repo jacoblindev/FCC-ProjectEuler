@@ -1,0 +1,12 @@
+function fiboEvenSum(n) {
+  // You can do it!
+  let fiboArr = [1, 2];
+  for (let i = 0; i < n - 2; i++) {
+    fiboArr = fiboArr.concat(fiboArr[i] + fiboArr[i + 1]);
+  }
+  console.log(fiboArr);
+  let evenSum = fiboArr.filter(e => e % 2 === 0).reduce((a, b) => a + b);
+  return evenSum;
+}
+
+fiboEvenSum(10);

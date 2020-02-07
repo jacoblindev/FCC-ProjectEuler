@@ -1,0 +1,23 @@
+function isPrime(e) {
+  for (let i = 2; i < e; i++) {
+    if (e % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function largestPrimeFactor(number) {
+  // Good luck!
+  let primeArr = [];
+  for (let i = 2; i <= number; i++) {
+    while (isPrime(i) && number % i === 0) {
+      number = number / i;
+      primeArr = primeArr.concat(i);
+    }
+  }
+  console.log(primeArr);
+  return primeArr[primeArr.length - 1];
+}
+
+largestPrimeFactor(13195);
