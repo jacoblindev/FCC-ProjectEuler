@@ -1,0 +1,27 @@
+function largestPalindromeProduct(n) {
+  // Good luck!
+  let numArr = [];
+  for (let i = 0; i < n; i++) {
+    numArr = numArr.concat('9');
+  }
+  // console.log(numArr);
+  let maxNum = numArr.join('') * 1;
+  let minNum = (maxNum + 1) / 10;
+  let paliArr = [];
+  for (let j = maxNum; j > minNum; j--) {
+    for (let k = maxNum; k > minNum; k--) {
+      let arr = (j * k).toString().split('');
+      let reArr = arr.map(e => e).reverse();
+      if (arr.join('') === reArr.join('')) {
+        paliArr.push(arr.join('') * 1);
+      }
+    }
+  }
+  let larPalindNum = paliArr.sort((a, b) => b - a);
+  console.log(maxNum);
+  console.log(minNum);
+  console.log(larPalindNum[0]);
+  return larPalindNum[0];
+}
+
+largestPalindromeProduct(3);
